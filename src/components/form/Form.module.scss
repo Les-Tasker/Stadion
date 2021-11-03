@@ -1,0 +1,58 @@
+@import "../../styles/index.scss";
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  label {
+    font-size: 1.1em;
+    font-weight: normal;
+    span {
+      font-family: "Roboto Condensed", sans-serif;
+      font-size: 0.7em;
+      font-weight: 600;
+      color: $secondary-color;
+    }
+  }
+  &__input {
+    border-bottom: 1px solid $tertiary-color;
+    height: 40px;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    font-weight: normal;
+    padding: 0;
+  }
+  &__input__submit {
+    background-color: $primary-color;
+    color: #fff;
+    height: 50px;
+    letter-spacing: 2px;
+    font-weight: normal;
+  }
+  &__input__checkbox {
+    margin-right: 10px;
+
+    &__label {
+      margin: 10px 0 70px 0;
+    }
+  }
+  select {
+    padding: 0;
+  }
+  .label__optional {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.attendee__total {
+  border-top: 1px solid $secondary-color;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  &__price {
+    margin-left: auto;
+  }
+  h4 {
+    font-weight: 400;
+  }
+}

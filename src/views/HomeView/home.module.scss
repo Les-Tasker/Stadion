@@ -1,0 +1,19 @@
+@import "../../styles/index.scss";
+
+.wrapper {
+  max-width: 600px;
+  margin: auto;
+  padding: 15px;
+}
+.attendee__container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  &__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    height: 50px;
+  }
+}

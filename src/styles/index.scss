@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@100;400;500;600;700;800&display=swap");
+@import "./variables.scss";
+
+* {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  border: none;
+}
+h1 {
+  font-size: 1.6em;
+  margin: 50px 0;
+}
+h3 {
+  font-weight: 700;
+  font-size: 1.1em;
+  margin: 30px 0 0 0;
+}
+h4 {
+  color: #3f3f3f;
+  font-weight: normal;
+}
+p {
+  font-size: 1.15em;
+  font-weight: normal;
+  margin: 20px 0;
+}
+.alert {
+  color: $primary-color;
+  margin: 10px 0;
+}
