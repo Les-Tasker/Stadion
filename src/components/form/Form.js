@@ -103,8 +103,7 @@ const Form = () => {
         {[...Array(10).keys()].map((count, index) => {
           return (
             <option value={count} key={"attendeeSelect-" + count}>
-              {count === 0 && "Please select number of attendees"}
-              {count >= 1 && <>{count}</>}
+              {count}
             </option>
           );
         })}
