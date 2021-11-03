@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import classes from "./Form.module.scss";
+
 const defaultTicketPrice = 50;
 const defaultUnavailableDates = ["2019-09-01", "2019-08-07", "2019-08-20"];
-let attendeeCount = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
 const Form = () => {
   const [firstName, setFirstName] = useState();
   const [familyName, setFamilyName] = useState();
@@ -12,9 +13,9 @@ const Form = () => {
   const [email, setEmail] = useState();
   const [telephone, setTelephone] = useState();
   const [wcAccess, setWcAccess] = useState(false);
-  const handleClick = () => setWcAccess(!wcAccess);
   const [totalCost, setTotalCost] = useState(0);
   const [dateError, setDateError] = useState(false);
+
   const submitHandler = (event) => {
     event.preventDefault();
     const formData = {
@@ -33,6 +34,7 @@ const Form = () => {
       .then((data) => alert(data.message))
       .catch((error) => console.log(error));
   };
+
   const calculateTotalCost = () => {
     let unitCost = defaultTicketPrice;
     if ((attendees > 3) & (attendees < 6)) {
@@ -42,15 +44,19 @@ const Form = () => {
     }
     setTotalCost(attendees * unitCost);
   };
+
   const handleUnavailbleDate = () => {
     setDateError(defaultUnavailableDates.includes(date));
   };
+
   useEffect(() => {
     calculateTotalCost();
   }, [attendees]);
+
   useEffect(() => {
     handleUnavailbleDate();
   }, [date]);
+
   return (
     <form className={classes.form} onSubmit={submitHandler}>
       <label htmlFor="form__input__firstName">FIRST NAME</label>
@@ -94,13 +100,11 @@ const Form = () => {
         value={attendees}
         onChange={(event) => setAttendees(event.currentTarget.value)}
       >
-        <option value="0" key="attendeeSelect-0">
-          Please select number of attendees
-        </option>
-        {attendeeCount.map((count, index) => {
+        {[...Array(10).keys()].map((count, index) => {
           return (
             <option value={count} key={"attendeeSelect-" + count}>
-              {count}
+              {count === 0 && "Please select number of attendees"}
+              {count >= 1 && <>{count}</>}
             </option>
           );
         })}
@@ -149,7 +153,7 @@ const Form = () => {
           className={classes.form__input__checkbox}
           id="wheelchairCheck"
           value={wcAccess}
-          onClick={handleClick}
+          onClick={(event) => setWcAccess(event.target.checked)}
           checked={wcAccess}
         />
         Do you need wheelchair access?
